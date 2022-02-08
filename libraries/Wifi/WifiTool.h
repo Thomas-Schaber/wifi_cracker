@@ -3,8 +3,6 @@
 #include "Arduino.h"
 
 
-using namespace std;
-
 class WifiTool
 {
 private:
@@ -12,5 +10,8 @@ public:
     WifiTool();
     void ctrKey(String key);
     void runCommand(String command);
+    void writeBatFile();
+    void delBatFile();
+    void runScript();
 };
 #endif
